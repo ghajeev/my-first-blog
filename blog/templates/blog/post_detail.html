@@ -2,12 +2,19 @@
 
 {% block content %}
   <div class="post">
+
     {% if postage.published_date %}
       <div class="date">
         {{ postage.published_date }}
       </div>
     {% endif %}
+
+    {%if user.is_authenticated %}
+      <a class="btn btn-default" href="{% url 'post_edit' pk=postage.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+    {% endif %}
+
     <h2>{{ postage.title }}</h2>
     <p>{{ postage.text|linebreaksbr }}</p>
+
   </div>
 {% endblock %}
