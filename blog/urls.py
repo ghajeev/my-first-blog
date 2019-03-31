@@ -7,4 +7,5 @@ from . import views
 # path is '' and you should go to this view
 urlpatterns = [
                 path('', views.post_list, name='post_list'),
+                path('post/<int:pk>/', views.post_detail, name="post_detail"),
               ]
